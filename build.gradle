@@ -30,5 +30,7 @@ dependencies {
 }
 
 test {
+	systemProperty 'spring.profiles.active', 'test'
 	useJUnitPlatform()
+	jvmArgs "-Dspring.test.context.cache.maxSize=1"
 }
