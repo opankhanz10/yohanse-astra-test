@@ -9,9 +9,4 @@ class AstratestApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
-	@Test
-	void applicationContextTest() {
-		AstratestApplication.main(new String[]{});
-	}
 }
