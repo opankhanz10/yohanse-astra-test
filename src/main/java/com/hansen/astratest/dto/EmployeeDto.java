@@ -47,6 +47,18 @@ public class EmployeeDto {
     private LocalDate hirehDateTo;
 
     @JsonIgnore
+    private String birthDateFromStr;
+
+    @JsonIgnore
+    private String birthDateToStr;
+
+    @JsonIgnore
+    private String hireDateFromStr;
+
+    @JsonIgnore
+    private String hirehDateToStr;
+
+    @JsonIgnore
     private String search;
 
     public EmployeeDto(Integer empNo, LocalDate birthDate, String firstName, String lastName, GenderEnums gender, LocalDate hireDate) {
@@ -64,5 +76,10 @@ public class EmployeeDto {
         this.hireDateFrom = hireDateFrom;
         this.hirehDateTo = hirehDateTo;
         this.search = search;
+        this.birthDateFromStr = birthDateFrom != null ? "" : null;
+        this.birthDateToStr = birthDateTo != null ? "" : null;
+        this.hireDateFromStr = hireDateFrom != null ? "" : null;
+        this.hirehDateToStr = hirehDateTo != null ? "" : null;
     }
+
 }

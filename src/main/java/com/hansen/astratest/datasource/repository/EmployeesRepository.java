@@ -18,10 +18,10 @@ public interface EmployeesRepository extends JpaRepository<Employees,Integer> {
     @Query(value ="SELECT new com.hansen.astratest.dto.EmployeeDto(e.empNo, e.birthDate, e.firstName, e.lastName, e.gender, e.hireDate) " +
             "FROM Employees e WHERE 1=1 " +
             "AND (:#{#employeeDto.search} IS NULL OR (UPPER(e.firstName) LIKE %:#{#employeeDto.search}% OR UPPER(e.lastName) LIKE %:#{#employeeDto.search}%)) " +
-            "AND (:#{#employeeDto.birthDateFrom} IS NULL OR e.birthDate >= :#{#employeeDto.birthDateFrom}) " +
-            "AND (:#{#employeeDto.birthDateTo} IS NULL OR e.birthDate <= :#{#employeeDto.birthDateTo}) " +
-            "AND (:#{#employeeDto.hireDateFrom} IS NULL OR e.hireDate >= :#{#employeeDto.hireDateFrom}) " +
-            "AND (:#{#employeeDto.hirehDateTo} IS NULL OR e.hireDate <= :#{#employeeDto.hirehDateTo}) " +
+            "AND (:#{#employeeDto.birthDateFromStr} IS NULL OR e.birthDate >= :#{#employeeDto.birthDateFrom}) " +
+            "AND (:#{#employeeDto.birthDateToStr} IS NULL OR e.birthDate <= :#{#employeeDto.birthDateTo}) " +
+            "AND (:#{#employeeDto.hireDateFromStr} IS NULL OR e.hireDate >= :#{#employeeDto.hireDateFrom}) " +
+            "AND (:#{#employeeDto.hirehDateToStr} IS NULL OR e.hireDate <= :#{#employeeDto.hirehDateTo}) " +
             "ORDER BY e.firstName ASC"
     )
     Page<EmployeeDto> getListEmployee(@Param("employeeDto") EmployeeDto employeeDto, PageRequest page);
